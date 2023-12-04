@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -14,7 +14,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
-        android:paddingLeft="30dp">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingLeft="30dp"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,22 +46,29 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
         app:cardElevation="10dp"
+        app:layout_constraintTop_toBottomOf="@id/linearregister1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:cardCornerRadius="8dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="10dp">
 
             <TextView
+                android:id="@+id/textvieregristrasi1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:text="Registrasi Akun"
                 android:fontFamily="@font/poppinsmedium"
                 android:textColor="@color/lightbrown"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <EditText
                 android:id="@+id/emailregistrasi1"
@@ -69,92 +80,120 @@
                 android:drawableLeft="@drawable/personicon"
                 android:hint="Email"
                 android:fontFamily="@font/poppinsmedium"
-                android:textColor="@color/lightbrown"/>
+                android:textColor="@color/lightbrown"
+                app:layout_constraintTop_toBottomOf="@id/textvieregristrasi1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <View
+                android:id="@+id/viewline1"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@color/lightbrown"
                 android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                app:layout_constraintTop_toBottomOf="@id/emailregistrasi1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <EditText
+                android:id="@+id/usernameregistrasi1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/password2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/custom_edittext"
-                    android:layout_marginTop="5dp"
-                    android:inputType="textPassword"
-                    android:hint="Password"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:paddingLeft="12dp"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:drawablePadding="10dp"
-                    android:drawableLeft="@drawable/lockicon"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:ignore="MissingConstraints" />
-
-                <ImageView
-                    android:id="@+id/toggleeyeregister1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/eye_closed"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:flow_verticalBias="0.5"
-                    android:layout_marginEnd="10dp"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                android:background="@drawable/custom_edittext"
+                android:layout_marginTop="2dp"
+                android:padding="8dp"
+                android:drawableLeft="@drawable/usernamelogo"
+                android:hint="Username"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/lightbrown"
+                app:layout_constraintTop_toBottomOf="@id/viewline1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <View
+                android:id="@+id/viewline2"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@color/lightbrown"
                 android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                app:layout_constraintTop_toBottomOf="@id/usernameregistrasi1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <EditText
+                android:id="@+id/password2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:background="@drawable/custom_edittext"
+                android:layout_marginTop="5dp"
+                android:inputType="textPassword"
+                android:hint="Password"
+                android:fontFamily="@font/poppinsmedium"
+                android:paddingLeft="12dp"
+                android:paddingRight="80dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/lockicon"
+                app:layout_constraintTop_toBottomOf="@id/viewline2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
-                <EditText
-                    android:id="@+id/passwordconfirm"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/custom_edittext"
-                    android:layout_marginTop="5dp"
-                    android:inputType="textPassword"
-                    android:hint="Confirm Password"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:paddingLeft="12dp"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:drawablePadding="10dp"
-                    android:drawableLeft="@drawable/lockicon"
-                    tools:ignore="MissingConstraints" />
+            <ImageView
+                android:id="@+id/toggleeyeregister1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/eye_closed"
+                android:paddingTop="15dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintEnd_toEndOf="@id/password2"
+                app:layout_constraintTop_toTopOf="@id/password2"/>
 
-                <ImageView
-                    android:id="@+id/toggleeyeregister2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/eye_closed"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:flow_verticalBias="0.5"
-                    android:layout_marginEnd="10dp"/>
+            <View
+                android:id="@+id/viewline3"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/lightbrown"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintTop_toBottomOf="@id/password2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/passwordconfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_edittext"
+                android:layout_marginTop="5dp"
+                android:inputType="textPassword"
+                android:hint="Confirm Password"
+                android:fontFamily="@font/poppinsmedium"
+                android:paddingLeft="12dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/lockicon"
+                app:layout_constraintTop_toBottomOf="@id/viewline3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/toggleeyeregister2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/eye_closed"
+                android:paddingTop="15dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintEnd_toEndOf="@id/passwordconfirm"
+                app:layout_constraintTop_toTopOf="@id/passwordconfirm"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
@@ -162,11 +201,14 @@
         android:id="@+id/buttonregister1"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/cardviewregister1"
-        android:layout_marginStart="280dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="30dp"
         app:cardCornerRadius="5dp"
         android:layout_gravity="right"
-        android:backgroundTint="@color/semidarkbrown">
+        android:backgroundTint="@color/semidarkbrown"
+        app:layout_constraintTop_toBottomOf="@id/cardviewregister1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -180,36 +222,42 @@
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/orsignupwith"
-        android:layout_width="match_parent"
+    <ProgressBar
+        android:id="@+id/loadingRegister"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:layout_below="@id/buttonregister1"
-        android:drawableLeft="@drawable/strokesignup"
-        android:paddingLeft="32dp"
-        android:gravity="center"/>
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linearregister2"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <LinearLayout
-        android:layout_below="@id/orsignupwith"
-        android:layout_width="match_parent"
+        android:id="@+id/linearregister2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:paddingTop="20dp"
-        android:paddingLeft="30dp"
-        android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/imgbuttongoogle1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="98dp"
-            android:src="@drawable/googlelogo"/>
-        <ImageView
-            android:id="@+id/imgbuttonfacebook1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:src="@drawable/facebooklogo"/>
+        android:paddingLeft="80dp"
+        android:paddingRight="80dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/buttonregister1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account? "
+            android:textSize="15sp"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <TextView
+            android:id="@+id/logintext1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log In"
+            android:textColor="@color/semidarkbrown"
+            android:fontFamily="@font/poppinsmedium"/>
     </LinearLayout>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
