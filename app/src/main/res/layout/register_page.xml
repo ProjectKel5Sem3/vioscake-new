@@ -80,7 +80,6 @@
                 android:drawableLeft="@drawable/personicon"
                 android:hint="Email"
                 android:fontFamily="@font/poppinsmedium"
-                android:textColor="@color/lightbrown"
                 app:layout_constraintTop_toBottomOf="@id/textvieregristrasi1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
@@ -106,7 +105,6 @@
                 android:drawableLeft="@drawable/usernamelogo"
                 android:hint="Username"
                 android:fontFamily="@font/poppinsmedium"
-                android:textColor="@color/lightbrown"
                 app:layout_constraintTop_toBottomOf="@id/viewline1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>

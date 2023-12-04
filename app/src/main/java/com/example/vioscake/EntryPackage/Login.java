@@ -1,5 +1,6 @@
 package com.example.vioscake.EntryPackage;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +40,9 @@ public class Login extends AppCompatActivity {
     private TextView signupButton, forgetpassButton;
     private ImageView togglePassword;
     ProgressDialog progressDialog;
+    ProgressBar progressBar;
     SharedPreferences sharedPreferences;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,11 +56,16 @@ public class Login extends AppCompatActivity {
         passwordShow = findViewById(R.id.password1);
         togglePassword = findViewById(R.id.toggleeyelogin1);
         progressDialog = new ProgressDialog(Login.this);
+        progressBar = findViewById(R.id.loadingLogin);
         sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressBar.setVisibility(View.VISIBLE);
+                progressDialog.setMessage("Sedang Memuat...");
+                progressDialog.setCancelable(false);
+                progressDialog.show();
                 String user_email = emailLine.getText().toString();
                 String user_password = passwordData.getText().toString();
 
@@ -111,6 +120,7 @@ public class Login extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        progressDialog.dismiss();
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             int code = jsonResponse.getInt("code");
@@ -119,25 +129,30 @@ public class Login extends AppCompatActivity {
                                 JSONArray dataArray = jsonResponse.getJSONArray("data");
                                 JSONObject userData = dataArray.getJSONObject(0);
 
-                                String userId = userData.getString("id_user");
+                                String userId = userData.getString("id");
                                 String username = userData.getString("user_email");
                                 String password = userData.getString("user_password");
                                 String alamat = userData.getString("user_fullname");
 
                                 Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(), NavbarFragment.class));
+                                progressBar.setVisibility(View.GONE);
                             } else {
                                 Toast.makeText(getApplicationContext(), "Login Gagal", Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.GONE);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(getApplicationContext(), "Error parsing JSON: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
+                progressDialog.dismiss();
             }
         }) {
             @Override

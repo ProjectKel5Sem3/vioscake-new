@@ -170,7 +170,7 @@ public class Register extends AppCompatActivity {
         boolean isValidConfPass = false;
 
         if (user_fullname.isEmpty() || !Character.isUpperCase(user_fullname.charAt(0))) {
-            etUsername.setError("Username salah!");
+            etUsername.setError("Username kurang tepat! harus disertai huruf kapital");
         } else {
             isValidusername = true;
         }
@@ -182,7 +182,7 @@ public class Register extends AppCompatActivity {
         }
 
         if (user_password.isEmpty() || user_password.length() < 4) {
-            etPassword1.setError("Password kurang!");
+            etPassword1.setError("Password kurang baik!");
         } else {
             isValidpassword = true;
         }
