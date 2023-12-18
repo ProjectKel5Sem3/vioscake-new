@@ -7,7 +7,7 @@
     android:background="@color/lightbrown"
     tools:context=".menuMain">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/atasan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,20 +23,19 @@
             android:src="@drawable/arrowleft" />
 
         <TextView
-            android:id="@+id/textUser"
+            android:id="@+id/textSelamatDatang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:drawableRight="@drawable/vioskecil"
-            android:drawablePadding="40dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/poppinsblack"
             android:gravity="center"
             android:paddingLeft="20dp"
-            android:text="Selamat Datang User!!!"
-            android:textSize="20dp" />
+            android:text="Selamat Datang Di Vioscake!!!"
+            android:textSize="20dp"
+            android:layout_below="@+id/backButton"/>
 
-
-    </LinearLayout>
+    </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/menuID"

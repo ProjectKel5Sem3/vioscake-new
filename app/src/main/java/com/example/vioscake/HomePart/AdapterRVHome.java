@@ -1,4 +1,4 @@
-package com.example.vioscake;
+package com.example.vioscake.HomePart;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,13 +7,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview .widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.vioscake.R;
 
 import java.util.ArrayList;
 
-public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerView.ViewHolder> {
+public class AdapterRVHome extends RecyclerView.Adapter<AdapterRVHome.ViewHolder> {
 
-    ArrayList<ItemModel> dataItem;
+    ArrayList<HomeItem> dataItem;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -29,19 +31,19 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         }
     }
 
-    AdapterRecyclerView(ArrayList<ItemModel> data){
+    AdapterRVHome(ArrayList<HomeItem> data){
         this.dataItem = data;
     }
 
     @NonNull
     @Override
-    public AdapterRecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdapterRVHome.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_item, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterRecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdapterRVHome.ViewHolder holder, int position) {
 
         TextView judultext = holder.NamaKue;
         TextView hargatext = holder.HargaKue;

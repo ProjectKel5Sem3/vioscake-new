@@ -1,6 +1,8 @@
-package com.example.vioscake;
+package com.example.vioscake.HomePart;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.vioscake.R;
 
 public class KueItem extends Fragment {
 

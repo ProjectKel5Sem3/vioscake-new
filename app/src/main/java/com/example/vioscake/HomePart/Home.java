@@ -1,4 +1,4 @@
-package com.example.vioscake;
+package com.example.vioscake.HomePart;
 
 import android.os.Bundle;
 
@@ -10,14 +10,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.vioscake.R;
+
 import java.util.ArrayList;
 
 public class Home extends Fragment {
 
     RecyclerView recyclerView;
-    AdapterRecyclerView adapterRecyclerView;
+    AdapterRVHome adapterRecyclerView;
     RecyclerView.LayoutManager layoutManager;
-    ArrayList<ItemModel> data;
+    ArrayList<HomeItem> data;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,7 +35,7 @@ public class Home extends Fragment {
 
         data = new ArrayList<>();
         for (int i = 0; i < KueItem.NamaKue.length; i++){
-            data.add(new ItemModel(
+            data.add(new HomeItem(
                     KueItem.NamaKue[i],
                     KueItem.HargaKue[i],
                     KueItem.LogoKue[i]
@@ -41,7 +43,7 @@ public class Home extends Fragment {
         }
 
 
-        adapterRecyclerView = new AdapterRecyclerView(data);
+        adapterRecyclerView = new AdapterRVHome(data);
         recyclerView.setAdapter(adapterRecyclerView);
 
 

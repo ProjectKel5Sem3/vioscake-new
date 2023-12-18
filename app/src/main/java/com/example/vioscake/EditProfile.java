@@ -1,11 +1,15 @@
 package com.example.vioscake;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
+
+import com.example.vioscake.EntryPackage.Login;
+import com.example.vioscake.EntryPackage.Register;
 
 public class EditProfile extends Fragment {
 
@@ -19,8 +23,11 @@ public class EditProfile extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Tambahkan logika yang ingin Anda jalankan saat tombol "Back" diklik
-                requireActivity().onBackPressed();  // Ini akan kembali ke tumpukan sebelumnya atau menutup fragment jika tidak ada tumpukan.
+                Profile profileFragment = new Profile();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragmentContainer, profileFragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 

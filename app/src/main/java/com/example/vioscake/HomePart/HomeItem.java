@@ -1,13 +1,10 @@
-package com.example.vioscake;
+package com.example.vioscake.HomePart;
 
-import androidx.fragment.app.Fragment;
-
-public class ItemModel extends Fragment {
-
+public class HomeItem {
     String NamaKue, HargaKue;
     int LogoKue;
 
-    public ItemModel(String namaKue, String hargaKue, int logoKue) {
+    public HomeItem(String namaKue, String hargaKue, int logoKue) {
         NamaKue = namaKue;
         HargaKue = hargaKue;
         LogoKue = logoKue;
