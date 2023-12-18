@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class Home extends Fragment {
 
-    RecyclerView recyclerView;
+    RecyclerView recyclerView;a
     AdapterRVHome adapterRecyclerView;
     RecyclerView.LayoutManager layoutManager;
     ArrayList<HomeItem> data;
